@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:twitter_by_ncl/core/widget/drawer_widget.dart';
+import 'package:twitter_by_ncl/presentation/home_page/widget/home_following/home_following_sections.dart';
+import 'package:twitter_by_ncl/presentation/home_page/widget/home_for_you/home_for_you_sections.dart';
 import 'package:twitter_by_ncl/presentation/home_page/widget/home_icon.dart';
 import 'package:twitter_by_ncl/presentation/home_page/widget/home_profile_avatar.dart';
 
@@ -22,7 +26,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: DrawerWidget(),
       key: _key,
       body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
@@ -38,6 +42,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               floating: true,
               forceElevated: innerBoxIsScrolled,
               bottom: TabBar(
+                indicatorColor: Colors.blue,
+                unselectedLabelColor: Colors.grey,
                 tabs: <Tab>[
                   Tab(text: 'For you'),
                   Tab(text: 'Following'),
@@ -50,10 +56,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         body: TabBarView(
           controller: _tabController,
           children: <Widget>[
-            Text('data'),
-            Text('data')
-            // StatisticsPage(),
-            // HistoryPage(),
+            HomeFollowingSections(),
+            HomeForYouSections(),
           ],
         ),
       ),

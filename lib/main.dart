@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:twitter_by_ncl/core/router/router.dart' as router;
 import 'injector/injector.dart' as dl;
 
@@ -11,6 +12,14 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+  ThemeData _buildTheme(brightness) {
+    var baseTheme = ThemeData(brightness: brightness);
+
+    return baseTheme.copyWith(
+      textTheme: GoogleFonts.openSansTextTheme(baseTheme.textTheme),
+    );
+  }
+
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
@@ -32,6 +41,7 @@ class MyApp extends StatelessWidget {
            ThemeMode.dark for dark theme
         */
         darkTheme: ThemeData(
+          textTheme: GoogleFonts.poppinsTextTheme(),
           useMaterial3: true,
           colorScheme: const ColorScheme(
             brightness: Brightness.dark,
