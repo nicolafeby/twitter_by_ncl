@@ -25,23 +25,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (context, child) => MaterialApp(
-        // title: "Twitter by Ncl",
-        // theme: ThemeData(
-        //   brightness: Brightness.light,
-        //   /* light theme settings */
-        // ),
-        // darkTheme: ThemeData(
-        //   brightness: Brightness.dark,
-
-        //   /* dark theme settings */
-        // ),
-        // themeMode: ThemeMode.dark,
-        /* ThemeMode.system to follow system theme, 
-           ThemeMode.light for light theme, 
-           ThemeMode.dark for dark theme
-        */
         darkTheme: ThemeData(
-          textTheme: GoogleFonts.poppinsTextTheme(),
+          textTheme: TextTheme(
+            bodySmall: TextStyle(color: Colors.white.withOpacity(0.9)),
+            bodyMedium: TextStyle(color: Colors.white.withOpacity(0.9)),
+            bodyLarge: TextStyle(color: Colors.white.withOpacity(0.9)),
+          ),
+          fontFamily: GoogleFonts.poppins().fontFamily,
           useMaterial3: true,
           colorScheme: const ColorScheme(
             brightness: Brightness.dark,

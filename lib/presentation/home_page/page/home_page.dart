@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:twitter_by_ncl/core/widget/drawer_widget.dart';
 import 'package:twitter_by_ncl/presentation/home_page/widget/home_following/home_following_sections.dart';
 import 'package:twitter_by_ncl/presentation/home_page/widget/home_for_you/home_for_you_sections.dart';
@@ -26,7 +25,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerWidget(),
+      drawer: const DrawerWidget(),
       key: _key,
       body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
@@ -56,8 +55,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         body: TabBarView(
           controller: _tabController,
           children: <Widget>[
-            HomeFollowingSections(),
             HomeForYouSections(),
+            HomeFollowingSections(),
           ],
         ),
       ),
