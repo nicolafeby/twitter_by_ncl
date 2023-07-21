@@ -10,33 +10,50 @@ class BasePage extends StatefulWidget {
 class _BasePageState extends State<BasePage> {
   int _selectedIndex = 0;
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+      bottomNavigationBar: _buildNavigator(),
+    );
+  }
+
+  Widget _buildNavigator() {
+    List iconList = [
+      Icons.home,
+      Icons.search,
+      Icons.group,
+      Icons.notifications,
+      Icons.email,
+    ];
+    return Container(
+      width: double.infinity,
+      height: 70.0,
+      decoration: const BoxDecoration(
+        color: Colors.black,
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 5.0,
+            offset: Offset(0, 3.5),
+            color: Colors.white,
           ),
         ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: List.generate(
+          5,
+          (index) => InkWell(
+            onTap: () {
+              _selectedIndex = index;
+              setState(() {});
+            },
+            child: Icon(
+              iconList[index],
+              color: _selectedIndex == index ? Colors.yellow : Colors.white,
+            ),
+          ),
+        ),
       ),
     );
   }
