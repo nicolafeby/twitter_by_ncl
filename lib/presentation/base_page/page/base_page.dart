@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:twitter_by_ncl/presentation/home_page/page/home_page.dart';
 
 class BasePage extends StatefulWidget {
   const BasePage({super.key});
@@ -8,11 +10,22 @@ class BasePage extends StatefulWidget {
 }
 
 class _BasePageState extends State<BasePage> {
+  Widget _generatePage() {
+    switch (_selectedIndex) {
+      case 0:
+        return HomePage();
+
+      default:
+        return HomePage();
+    }
+  }
+
   int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: _generatePage(),
       bottomNavigationBar: _buildNavigator(),
     );
   }
@@ -50,6 +63,7 @@ class _BasePageState extends State<BasePage> {
             },
             child: Icon(
               iconList[index],
+              size: 26.sp,
               color: _selectedIndex == index ? Colors.yellow : Colors.white,
             ),
           ),
