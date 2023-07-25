@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:twitter_by_ncl/core/widget/drawer_widget.dart';
 import 'package:twitter_by_ncl/presentation/home_page/widget/home_following/home_following_sections.dart';
 import 'package:twitter_by_ncl/presentation/home_page/widget/home_for_you/home_for_you_sections.dart';
 import 'package:twitter_by_ncl/presentation/home_page/widget/home_icon.dart';
-import 'package:twitter_by_ncl/presentation/home_page/widget/home_profile_avatar.dart';
+import 'package:twitter_by_ncl/core/widget/profile_avatar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -34,7 +35,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             SliverAppBar(
               leading: InkWell(
                 onTap: () => _key.currentState?.openDrawer(),
-                child: const HomeProfileAvatar(),
+                child: Padding(
+                    padding: EdgeInsets.only(left: 16.w),
+                    child: const ProfileAvatar()),
               ),
               title: const HomeIcon(),
               centerTitle: true,
@@ -42,12 +45,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               floating: true,
               forceElevated: innerBoxIsScrolled,
               bottom: TabBar(
+                labelStyle: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      fontWeight: FontWeight.w700,
+                    ),
                 indicatorColor: Colors.blue,
                 unselectedLabelColor: Colors.grey,
                 tabs: const <Tab>[
-                  Tab(
-                    text: 'For you',
-                  ),
+                  Tab(text: 'For you'),
                   Tab(text: 'Following'),
                 ],
                 controller: _tabController,
