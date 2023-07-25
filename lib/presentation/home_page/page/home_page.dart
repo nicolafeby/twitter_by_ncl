@@ -14,6 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late TabController _tabController;
+
   final GlobalKey<ScaffoldState> _key = GlobalKey();
 
   @override
@@ -33,9 +34,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             SliverAppBar(
               leading: InkWell(
                 onTap: () => _key.currentState?.openDrawer(),
-                child: HomeProfileAvatar(),
+                child: const HomeProfileAvatar(),
               ),
-              title: HomeIcon(),
+              title: const HomeIcon(),
               centerTitle: true,
               pinned: true,
               floating: true,
@@ -43,8 +44,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               bottom: TabBar(
                 indicatorColor: Colors.blue,
                 unselectedLabelColor: Colors.grey,
-                tabs: <Tab>[
-                  Tab(text: 'For you'),
+                tabs: const <Tab>[
+                  Tab(
+                    text: 'For you',
+                  ),
                   Tab(text: 'Following'),
                 ],
                 controller: _tabController,
@@ -54,7 +57,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         },
         body: TabBarView(
           controller: _tabController,
-          children: <Widget>[
+          children: const <Widget>[
             HomeForYouSections(),
             HomeFollowingSections(),
           ],

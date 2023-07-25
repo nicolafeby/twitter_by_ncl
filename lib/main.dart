@@ -12,13 +12,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  ThemeData _buildTheme(brightness) {
-    var baseTheme = ThemeData(brightness: brightness);
-
-    return baseTheme.copyWith(
-      textTheme: GoogleFonts.openSansTextTheme(baseTheme.textTheme),
-    );
-  }
+  
 
   const MyApp({super.key});
   @override

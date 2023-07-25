@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:twitter_by_ncl/presentation/comunity_page/page/comunity_page.dart';
 import 'package:twitter_by_ncl/presentation/home_page/page/home_page.dart';
+import 'package:twitter_by_ncl/presentation/message_page/page/message_page.dart';
+import 'package:twitter_by_ncl/presentation/notification_page/page/notification_page.dart';
+import 'package:twitter_by_ncl/presentation/search_page/page/search_page.dart';
 
 class BasePage extends StatefulWidget {
   const BasePage({super.key});
@@ -12,11 +16,17 @@ class BasePage extends StatefulWidget {
 class _BasePageState extends State<BasePage> {
   Widget _generatePage() {
     switch (_selectedIndex) {
-      case 0:
-        return HomePage();
+      case 1:
+        return const SearchPage();
+      case 2:
+        return const ComunityPage();
+      case 3:
+        return const NotificationPage();
+      case 4:
+        return const MessagePage();
 
       default:
-        return HomePage();
+        return const HomePage();
     }
   }
 
