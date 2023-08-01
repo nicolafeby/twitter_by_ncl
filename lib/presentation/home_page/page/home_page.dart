@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
             SliverAppBar(
-              leading: InkWell(
+              leading: GestureDetector(
                 onTap: () => _key.currentState?.openDrawer(),
                 child: Padding(
                     padding: EdgeInsets.only(left: 16.w),

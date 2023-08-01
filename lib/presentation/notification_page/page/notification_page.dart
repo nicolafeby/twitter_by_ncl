@@ -36,7 +36,7 @@ class _NotificationPageState extends State<NotificationPage>
                     padding: EdgeInsets.only(right: 16.w),
                     child: const Icon(Icons.settings)),
               ],
-              leading: InkWell(
+              leading: GestureDetector(
                 onTap: () => _key.currentState?.openDrawer(),
                 child: Padding(
                   padding: EdgeInsets.only(left: 16.w),

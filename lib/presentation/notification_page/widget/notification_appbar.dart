@@ -27,7 +27,7 @@ class NotificationAppbar extends StatelessWidget
               fontWeight: FontWeight.w700,
             ),
       ),
-      leading: InkWell(
+      leading: GestureDetector(
         onTap: globalKey.currentState?.openDrawer,
         child: const ProfileAvatar(),
       ),
